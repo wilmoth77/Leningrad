@@ -1,6 +1,6 @@
 /**
- * Moskow
- * https://github.com/wilmoth77/Moskow
+ * Leningrad
+ * https://github.com/wilmoth77/Leningrad
  *
  * Licensed under the MIT License
  */
@@ -23,17 +23,17 @@ exports.warnOn = '*';
 exports.template = function (grunt, init, done) {
 	init.process({}, [
 		// Prompt for these values.
-		init.prompt('title', 'Moskow'),
+		init.prompt('title', 'Leningrad'),
 		{
 			name   : 'prefix',
 			message: 'PHP function prefix (alpha and underscore characters only)',
-			default: 'Moskow'
+			default: 'Leningrad'
 		},
 	], function( err, props ) {
 		props.keywords = ['Underscores','Sage(Roots)','Bootstrap'];
 		props.version = '1.0.0';
                 props.author_name = 'Jeff Wilmoth';
-                props.repository = 'https://github.com/wilmoth77/Moskow';
+                props.repository = 'https://github.com/wilmoth77/Leningrad';
 		props.devDependencies = {
 			"grunt": "latest",
                 "load-grunt-tasks": "latest",
