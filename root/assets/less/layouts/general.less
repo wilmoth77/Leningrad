@@ -1,3 +1,17 @@
 /* 
     Less that does not fit into a page or layout category
 */
+
+// Main content area
+.main {
+  .make-sm-column(@main-sm-columns);
+  .sidebar-primary & {
+    .make-sm-column(@main-sm-columns - @sidebar-sm-columns);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.sidebar {
+  .make-sm-column(@sidebar-sm-columns);
+}
