@@ -11,49 +11,24 @@
  * @package {%= title %}
  */
 
-get_header(); ?>
+get_template_part('templates/page', 'header'); ?>
 
-	<div id="primary" class="content-area container">
-		<main id="main" class="site-main" role="main">
+<?php if (!have_posts()) : ?>
+  <div class="alert alert-warning">
+    <?php _e('Sorry, no results were found.', '{%= prefix %}'); ?>
+  </div>
+  <?php get_search_form(); ?>
+<?php endif; ?>
 
-		<div class="row">
+<?php while (have_posts()) : the_post(); ?>
+  <?php get_template_part('templates/content', get_post_format()); ?>
+<?php endwhile; ?>
 
-			<div class="col-md-8">
-
-			<?php if ( have_posts() ) : ?>
-
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php
-						/* Include the Post-Format-specific template for the content.
-					 	* If you want to override this in a child theme, then include a file
-					 	* called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 	*/
-						get_template_part( 'content', get_post_format() );
-					?>
-
-				<?php endwhile; ?>
-
-				<?php {%= prefix %}_paging_nav(); ?>
-
-			<?php else : ?>
-
-				<?php get_template_part( 'content', 'none' ); ?>
-
-			<?php endif; ?>
-
-			</div>
-
-			<div class="col-md-4">
-
-				<?php get_sidebar(); ?>
-
-			</div>
-
-		</div><!-- #row -->
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php get_footer(); ?>
+<?php if ($wp_query->max_num_pages > 1) : ?>
+  <nav class="post-nav">
+    <ul class="pager">
+      <li class="previous"><?php next_posts_link(__('&larr; Older posts', '{%= prefix %}')); ?></li>
+      <li class="next"><?php previous_posts_link(__('Newer posts &rarr;', '{%= prefix %}')); ?></li>
+    </ul>
+  </nav>
+<?php endif; ?>
