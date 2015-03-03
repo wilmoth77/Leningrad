@@ -6,20 +6,25 @@
     ?>
       
       <!-- Base.php -->
-
-    <div class="wrap container" role="document">
-      <div class="content row">
-        <main class="main" role="main">
-          <?php include {%= prefix %}_template_path(); ?>
-        </main><!-- /.main -->
-        <?php if ({%= prefix %}_display_sidebar()) : ?>
-          <aside class="sidebar" role="complementary">
-            <?php include {%= prefix %}_sidebar_path(); ?>
-          </aside><!-- /.sidebar -->
-        <?php endif; ?>
-      </div><!-- /.content -->
-    </div><!-- /.wrap -->
-    <?php
+    <?php if({%= prefix %}_display_sidebar()) : ?>
+      <main class="wrap container" role="main">
+          <div class="content row">
+              <div class="main">
+                  <?php include {%= prefix %}_template_path(); ?>
+              </div><!-- /.main -->
+              <aside class="sidebar" role="complementary">
+                  <?php include {%= prefix %}_sidebar_path(); ?>
+              </aside><!-- /.sidebar -->              
+          </div>
+      </main><!-- /.wrap -->
+          <?php else: ?>
+      <main class="wrap" role="main">
+          <div class="main">
+              <?php include {%= prefix %}_template_path(); ?>
+          </div><!-- /.main -->
+      </main><!-- /.wrap -->
+      <?php endif; ?>
+      <?php
       get_template_part('templates/footer');
       wp_footer();
     ?>
