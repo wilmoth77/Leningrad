@@ -36,7 +36,7 @@ function {%= title %}_scripts() {
   wp_enqueue_script('jquery');
   wp_enqueue_script('script', get_template_directory_uri() . $assets['script'], array(), filemtime( get_template_directory() . $assets['script'] ), true);
 }
-add_action( 'wp_enqueue_scripts', '{%= title %}_scripts' );
+add_action( 'wp_enqueue_scripts', '{%= title %}_scripts', 100 );
 
 // jQuery local fallback
 function {%= title %}_jquery_local_fallback($src, $handle = null) {
