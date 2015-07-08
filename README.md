@@ -5,20 +5,20 @@ Leningrad
 
 Prerequisites to install: Grunt, Bower and LESS
 
-You also need `grunt-init`, which you can install globally with 
+You also need `grunt-init`, which you can install globally with
 ```
 npm install -g grunt-init
 ```
 
 To clone the repository and add the template to grunt-init for automated project scaffolding run
 ```
-git clone github:wilmoth77/leningrad.git ~/.grunt-init/leningrad
+git clone https://github.com/wilmoth77/Leningrad.git ~/.grunt-init/leningrad
 ```
 
 
 ## Installation
 
-Install a copy of WordPress on your localhost. Cd into your themes folder with and create a new, empty theme folder. 
+Install a copy of WordPress on your localhost. Cd into your themes folder with and create a new, empty theme folder.
 ```
 cd /var/www/YourWordPressInstallation/wp-content/themes
 ```
